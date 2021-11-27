@@ -6,25 +6,36 @@ import './csstyle.css'
 
 function TodoInpunt() {
     let dispatch = useDispatch();
-    let [name, setName]=useState();
+    let [name, setName]=useState("");
+    const handleChange=(e)=>{
+        if (e.target.value.length > 14 ) {
+            alert("Please Add Task Bettwen 3 and 15 letters")
+        }else{
+            setName(e.target.value)
+        }
+    }
+    
     return (
         <div>
             
             <div className="form input">
                 <input classeName="space input" 
-                onChange= { e => setName(e.target.value)}
+                onChange= { e => handleChange(e)}
                 value={name}
                 type="text"/>
                 <button 
+                className="add"
                 onClick={() => {
-                   dispatch( addTodo( 
+                    name !== ""?dispatch( addTodo( 
                     {
                         id :uuid(),
                         name: name ,
+                        done:0,
                     }
                     
-                    ))
-                setName(' ');
+                    )):alert("Please Add Task Bettwen 3 and 15 letters")
+                    
+                setName('');
                 }
                 }
                 

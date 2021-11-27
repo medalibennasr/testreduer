@@ -1,11 +1,16 @@
-/* eslint-disable no-fallthrough */
-import {ADD_TODO ,DELETE_TODO,UPDATE_TODO} from "../actions/actions";
+
+import {ADD_TODO ,DELETE_TODO,UPDATE_TODO , DONE_TODO} from "../actions/actions";
 import {todos } from '../data/data';
 
 export let reducer =(data = todos ,action) =>{ 
     let newTodos ;
         switch (action.type) {
             
+
+            case DONE_TODO :
+            newTodos = [...data];
+            newTodos= !data.done(action.payload);
+            return newTodos;
 
         case ADD_TODO :
             newTodos = [...data];

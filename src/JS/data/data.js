@@ -2,18 +2,18 @@ export let todos =[
 {
     id :1,
     name: "Gym",
-    done:1,
+    done:true,
  },
 {
  id :2,
  name: "Learn Redux",
- done:0,
+ done:false,
 },
  
 {
 id :3,
-name: "Cafe With Friends",
-done:1,
+name: "Coffee ",
+done:true,
 },
 
 ]
