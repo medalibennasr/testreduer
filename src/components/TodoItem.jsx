@@ -7,7 +7,7 @@ import './csstyle.css'
 function TodoItem({todo}) {
     const [edit ,setEdit] =useState (false);
     const [name ,setName] =useState (todo.name);
-    const [done ,setDone] =useState ();
+    const [done ,setDone] =useState (false);
     let dispatch = useDispatch();
     return (
         <div>
@@ -16,15 +16,9 @@ function TodoItem({todo}) {
             
                 <div style={{display:"flex" , justifyContent:'space-between',width:"700px" }}>
                     <button 
-                     onClick={() => dispatch(doneTodo(
-                        {
-                            ...todo,
-                            done:done
-                        }
-                    
-                     )
+                     onClick={() => dispatch(doneTodo(todo.id)
                      ,setDone(todo.done))}
-                    className="done" style={{ background : (todo.done) ?  '#8cc751': '#ffb861'  }} >{todo.done? "Done"  :"Not"}</button>
+                    className="done" style={{ background : (todo.done) ?  '#b0f2b6': '#ffb861'  }} >{todo.done? "Done"  :"Not"}</button>
 
                 <div>
                    { edit ? <input   type="text" value={name}
